@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.escape_room.EscapeRoomFragment">
+
+    <data>
+
+        <variable
+            name="adpater"
+            type="com.nisanth.cinergy.di.utility.CommonAdapter" />
+
+        <variable
+            name="viewModel"
+            type="com.nisanth.cinergy.ui.escape_room.EscapeRoomViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/spacing_small">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@string/label_escape_room"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_20"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvBenefits"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0"
+            android:layout_marginTop="@dimen/spacing_small"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:setEscapeRoomAdapter="@{adpater}"
+            app:setEscapeRooms="@{viewModel.escapeRoomLiveData}"
+            app:spanCount="2"
+            tools:itemCount="6"
+            tools:listitem="@layout/layout_escape_room_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

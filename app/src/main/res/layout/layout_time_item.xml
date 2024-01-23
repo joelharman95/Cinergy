@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="myModel"
+            type="com.nisanth.cinergy.data.api.response.Sessions" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/llShowTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacing_small"
+        app:cardCornerRadius="@dimen/spacing_tiny"
+        app:strokeColor="@color/greenish_500"
+        app:strokeWidth="@dimen/spacing_2">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_normal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{myModel.showtime}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_16"
+                tools:text="05:30 PM" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

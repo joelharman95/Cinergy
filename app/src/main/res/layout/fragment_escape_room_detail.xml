@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.escape_room.EscapeRoomDetailFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.nisanth.cinergy.ui.escape_room.EscapeRoomViewModel" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="@dimen/spacing_small">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/spacing_small">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:background="@drawable/shape_circle"
+                android:onClick="@{viewModel.closeDetailDialogIfItsOpen}"
+                android:padding="@dimen/spacing_small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_close" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guildeLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".35" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/sivPoster"
+                android:layout_width="@dimen/dimen_0"
+                android:layout_height="@dimen/spacing_296"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="@+id/guildeLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivClose"
+                app:setEscapeRoomPic="@{viewModel.escapeRoomsMovies.imageUrl}"
+                app:shapeAppearanceOverlay="@style/CircularCorner"
+                tools:src="@drawable/ic_movies" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitle"
+                android:layout_width="@dimen/dimen_0"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.escapeRoomsMovies.title}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_20"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guildeLine"
+                app:layout_constraintTop_toTopOf="@+id/sivPoster"
+                tools:text="Escape Room - Bunker 57" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:drawableStart="@drawable/ic_calendar"
+                android:drawablePadding="@dimen/spacing_tiny"
+                android:gravity="center"
+                android:text="@{viewModel.escapeRoomsMovies.runTime}"
+                app:layout_constraintStart_toStartOf="@+id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                tools:text="60 mins" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvSeats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:drawableStart="@drawable/ic_person"
+                android:drawablePadding="@dimen/spacing_tiny"
+                android:gravity="center"
+                android:text="@{viewModel.erTickets}"
+                app:layout_constraintStart_toEndOf="@+id/tvDuration"
+                app:layout_constraintTop_toTopOf="@+id/tvDuration"
+                tools:text="Up to 8 members" />
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/spacing_224"
+                android:layout_marginTop="@dimen/spacing_small"
+                app:layout_constraintBottom_toTopOf="@id/btnBookNow"
+                app:layout_constraintStart_toStartOf="@+id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvDuration">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/spacing_296"
+                    android:paddingVertical="@dimen/spacing_small"
+                    android:paddingStart="@dimen/spacing_2"
+                    android:text="@{viewModel.escapeRoomsMovies.synopsis}"
+                    android:textSize="@dimen/size_16"
+                    tools:text="LOS ANGELES, CA. The year is 2039." />
+            </androidx.core.widget.NestedScrollView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBookNow"
+                style="@style/ButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:backgroundTint="@color/greenish_500"
+                android:onClick="@{viewModel.openBooking}"
+                android:text="@string/action_book_now"
+                app:cornerRadius="@dimen/spacing_small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvMore"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/spacing_medium"
+                android:layout_marginTop="@dimen/spacing_tiny"
+                android:drawableTop="@drawable/ic_info"
+                android:drawablePadding="@dimen/spacing_tiny"
+                android:gravity="center"
+                android:text="@string/label_more"
+                android:textSize="@dimen/size_16"
+                app:layout_constraintBottom_toBottomOf="@+id/btnBookNow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btnBookNow" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

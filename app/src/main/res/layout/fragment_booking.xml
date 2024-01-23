@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".BookingFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.nisanth.cinergy.ui.escape_room.EscapeRoomViewModel" />
+
+        <variable
+            name="dateAdapter"
+            type="com.nisanth.cinergy.di.utility.CommonAdapter" />
+
+        <variable
+            name="timeAdapter"
+            type="com.nisanth.cinergy.di.utility.CommonAdapter" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/spacing_small">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/sivPoster"
+            android:layout_width="@dimen/spacing_extra_large"
+            android:layout_height="@dimen/spacing_96"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setEscapeRoomPic="@{viewModel.resMovieInfo.imageUrl}"
+            app:shapeAppearanceOverlay="@style/CircularCorner"
+            tools:src="@drawable/ic_movies" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="@dimen/dimen_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:text="@{viewModel.resMovieInfo.title}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_20"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/sivPoster"
+            app:layout_constraintTop_toTopOf="@+id/sivPoster"
+            tools:text="Escape Room - Bunker 57" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.resMovieInfo.rating + ` * ` + viewModel.resMovieInfo.runTime}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_16"
+            app:layout_constraintStart_toStartOf="@+id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            tools:text="NR * 60 MIN" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_tiny"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@string/label_choose_date"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sivPoster" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvDates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:background="@color/transparent_light_grey"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDate"
+            app:setDate="@{viewModel.showDateAndTime}"
+            app:setDateAdapter="@{dateAdapter}"
+            tools:itemCount="5"
+            tools:listitem="@layout/layout_date_item" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_tiny"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:text="@string/label_choose_time"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvDates" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTime"
+            app:setTime="@{viewModel.showTimeWrtDate}"
+            app:setTimeAdapter="@{timeAdapter}"
+            tools:itemCount="5"
+            tools:listitem="@layout/layout_time_item" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBookNow"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_0"
+            android:layout_marginEnd="@dimen/dimen_0"
+            android:backgroundTint="@color/greenish_500"
+            android:enabled="false"
+            android:text="@string/action_continue"
+            app:cornerRadius="@dimen/spacing_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

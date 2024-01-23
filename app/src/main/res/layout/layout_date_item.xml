@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="callBack"
+            type="com.nisanth.cinergy.di.utility.ShowDateTimeListener" />
+
+        <variable
+            name="myModel"
+            type="com.nisanth.cinergy.data.api.response.ShowDateWithTimes" />
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/llShowDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_12"
+        android:backgroundTint="@{myModel.isHighLighted ? @color/transparent_light_grey : @color/transparent_light_green}"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:onClick="@{() -> callBack.showTimeWrtDate(myModel)}"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_tiny">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/greenish_500"
+            android:textSize="@dimen/size_16"
+            app:bindDate="@{myModel.date}"
+            tools:text="Tue\nJan 09" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

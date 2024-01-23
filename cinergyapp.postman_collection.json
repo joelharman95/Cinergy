@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "32f782c4-5377-4840-aee0-3c611f384673",
+		"name": "cinergyapp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://cinergyapp.thetunagroup.com/api/guestToken",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cinergyapp.thetunagroup.com/api/guestToken?device_type=2&device_id=CI -nis&push_token=&secret_key=402620C92552D9303C58B901B43B0A41718E772C19520DD9A9AA52CE5A8FCB99",
+					"protocol": "https",
+					"host": [
+						"cinergyapp",
+						"thetunagroup",
+						"com"
+					],
+					"path": [
+						"api",
+						"guestToken"
+					],
+					"query": [
+						{
+							"key": "device_type",
+							"value": "2"
+						},
+						{
+							"key": "device_id",
+							"value": "CI -nis"
+						},
+						{
+							"key": "push_token",
+							"value": ""
+						},
+						{
+							"key": "secret_key",
+							"value": "402620C92552D9303C58B901B43B0A41718E772C19520DD9A9AA52CE5A8FCB99"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://cinergyapp.thetunagroup.com/api/login?device_type=2&device_id=CI -nisid&login_type=2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "325a51516b37726c6c46573852482f315278434e346d446d47696a6c6c726e5239645a795337753150394e69646237386b39464d764b66667958724a464f30496e31797764752f425a2f752b746d78487555386362324152505a7845525a65483755622b78665837734971414a5633486676716d3955306136793935392b2f48"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://cinergyapp.thetunagroup.com/api/login?device_type=2&device_id=CI -nis&login_type=2",
+					"protocol": "https",
+					"host": [
+						"cinergyapp",
+						"thetunagroup",
+						"com"
+					],
+					"path": [
+						"api",
+						"login"
+					],
+					"query": [
+						{
+							"key": "secret_key",
+							"value": "402620C92552D9303C58B901B43B0A41718E772C19520DD9A9AA52CE5A8FCB99",
+							"disabled": true
+						},
+						{
+							"key": "device_type",
+							"value": "2"
+						},
+						{
+							"key": "device_id",
+							"value": "CI -nis"
+						},
+						{
+							"key": "login_type",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://cinergyapp.thetunagroup.com/api/login?device_type=2&device_id=CI -nisid&location_id=5&member_id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "325a51516b37726c6c46573852482f315278434e346d446d47696a6c6c726e5239645a795337753150394e69646237386b39464d764b66667958724a464f30496e31797764752f425a2f752b746d78487555386362324152505a7845525a65483755622b78665837734971414a5633486676716d3955306136793935392b2f48"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "userid",
+						"value": "11",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://cinergyapp.thetunagroup.com/api/escapeRoomMovies?device_type=2&device_id=CI -nis&location_id=5&member_id=null",
+					"protocol": "https",
+					"host": [
+						"cinergyapp",
+						"thetunagroup",
+						"com"
+					],
+					"path": [
+						"api",
+						"escapeRoomMovies"
+					],
+					"query": [
+						{
+							"key": "device_type",
+							"value": "2"
+						},
+						{
+							"key": "device_id",
+							"value": "CI -nis"
+						},
+						{
+							"key": "location_id",
+							"value": "5"
+						},
+						{
+							"key": "member_id",
+							"value": "null"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://cinergyapp.thetunagroup.com/api/getMovieInfo?device_id=CI -2119&movie_id=HO00001620&device_type=2&location_id=5",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "325a51516b37726c6c46573852482f315278434e346d446d47696a6c6c726e5239645a795337753150394e69646237386b39464d764b66667958724a464f30496e31797764752f425a2f752b746d78487555386362324152505a7845525a65483755622b78665837734971414a5633486676716d3955306136793935392b2f48"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "userid",
+						"value": "11",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://cinergyapp.thetunagroup.com/api/getMovieInfo?device_id=CI -nis&movie_id=HO00001620&device_type=2&location_id=5",
+					"protocol": "https",
+					"host": [
+						"cinergyapp",
+						"thetunagroup",
+						"com"
+					],
+					"path": [
+						"api",
+						"getMovieInfo"
+					],
+					"query": [
+						{
+							"key": "device_id",
+							"value": "CI -nis"
+						},
+						{
+							"key": "movie_id",
+							"value": "HO00001620"
+						},
+						{
+							"key": "device_type",
+							"value": "2"
+						},
+						{
+							"key": "location_id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

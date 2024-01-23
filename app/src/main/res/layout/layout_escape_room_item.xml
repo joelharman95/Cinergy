@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="callBack"
+            type="com.nisanth.cinergy.di.utility.EscapeRoomListener" />
+
+        <variable
+            name="myModel"
+            type="com.nisanth.cinergy.data.api.response.EscapeRoomsMovies" />
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_small"
+        android:layout_marginVertical="@dimen/spacing_small"
+        android:onClick="@{(view) -> callBack.escapeRoomDetail(myModel)}"
+        android:orientation="vertical">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            app:shapeAppearanceOverlay="@style/CircularCorner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_224"
+            android:scaleType="fitXY"
+            app:setEscapeRoomPic="@{myModel.imageUrl}"
+            tools:src="@drawable/ic_movies" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{myModel.title}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_16"
+            android:textStyle="bold"
+            tools:text="Escape Room - Bunker 57" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/landingFragment">
+
+    <fragment
+        android:id="@+id/landingFragment"
+        android:name="com.nisanth.cinergy.ui.landing.LandingFragment"
+        android:label="fragment_landing"
+        tools:layout="@layout/fragment_landing">
+        <action
+            android:id="@+id/action_landingFragment_to_escapeRoomFragment"
+            app:destination="@id/escapeRoomFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/escapeRoomFragment"
+        android:name="com.nisanth.cinergy.ui.escape_room.EscapeRoomFragment"
+        android:label="@string/title_escape_room"
+        tools:layout="@layout/fragment_escape_room">
+
+        <action
+            android:id="@+id/action_escapeRoomFragment_to_bottomSheetDialogFragment"
+            app:destination="@id/bottomSheetDialogFragment" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/bottomSheetDialogFragment"
+        android:name="com.nisanth.cinergy.ui.escape_room.EscapeRoomDetailFragment"
+        android:label="fragment_bottom_sheet_dialog_list_dialog"
+        tools:layout="@layout/fragment_escape_room_detail">
+        <action
+            android:id="@+id/action_bottomSheetDialogFragment_to_bookingFragment"
+            app:destination="@id/bookingFragment" />
+    </dialog>
+
+    <fragment
+        android:id="@+id/bookingFragment"
+        android:name="com.nisanth.cinergy.BookingFragment"
+        android:label="fragment_booking"
+        tools:layout="@layout/fragment_booking" />
+
+</navigation>
